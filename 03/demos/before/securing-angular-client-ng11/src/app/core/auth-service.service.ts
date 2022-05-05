@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreModule } from './core.module';
-import { User, UserManager, UserSettings } from 'oidc-client';
+import { SignoutResponse, User, UserManager, UserSettings } from 'oidc-client';
 import { Constants } from '../constants';
 import { Observable, Subject } from 'rxjs';
 
@@ -28,6 +28,10 @@ export class AuthService {
     return this.userManager.signinRedirect();
   }
 
+  logout(): Promise<void> {
+    return this.userManager.signoutRedirect();
+  }
+
   isLoggedIn(): Promise<boolean> {
     return this.userManager.getUser().then((authenticatedUser) => {
       var isCurrent = !!authenticatedUser && !authenticatedUser.expired;
@@ -46,5 +50,10 @@ export class AuthService {
                                  this.loginChangedSubject.next(!!authenticatedUser && !authenticatedUser.expired);
                                  return authenticatedUser;
                              });
+  }
+
+  completeLogout(): Promise<SignoutResponse> {
+    this.user = null;
+    return this.userManager.signoutRedirectCallback();
   }
 }

@@ -10,14 +10,18 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
 
   constructor(private authService: AuthService) {
-    this.authService.loginChanged.subscribe(result => this.isLoggedIn = result);
+    this.authService.loginChanged.subscribe((result) => (this.isLoggedIn = result));
   }
 
   ngOnInit() {
-    this.authService.isLoggedIn().then(result => this.isLoggedIn = result);
+    this.authService.isLoggedIn().then((result) => (this.isLoggedIn = result));
   }
 
   login(): void {
     this.authService.login();
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }
