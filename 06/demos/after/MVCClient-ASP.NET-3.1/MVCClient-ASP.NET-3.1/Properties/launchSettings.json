@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "MVCClient_ASP.NET_3._1": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:4201",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
