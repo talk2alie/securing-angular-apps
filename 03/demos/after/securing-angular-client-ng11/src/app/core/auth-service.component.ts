@@ -14,8 +14,8 @@ export class AuthService {
 
   constructor() {
     const stsSettings = {
-      authority: Constants.stsAuthority,
-      client_id: Constants.clientId,
+      authority: 'https://mutaaja-sl.us.auth0.com',
+      client_id: 'OXRvNidUhGLvsL2EJZCRRTDq3NdQDLvy',
       redirect_uri: `${Constants.clientRoot}signin-callback`,
       scope: 'openid profile projects-api',
       response_type: 'code',
@@ -25,6 +25,7 @@ export class AuthService {
   }
 
   login() {
+    console.log(Constants.stsAuthority);
     return this._userManager.signinRedirect();
   }
 
