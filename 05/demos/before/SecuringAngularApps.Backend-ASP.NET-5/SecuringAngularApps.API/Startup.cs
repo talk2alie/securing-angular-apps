@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,18 +34,29 @@ namespace SecuringAngularApps.API
                 {
                     builder.AllowAnyHeader()
                     .AllowAnyMethod()
+                    // This is needed when the site requires authentication
                     .SetIsOriginAllowed(origin => origin == "http://localhost:4200")
                     .AllowCredentials();
                 });
             });
 
-            services.AddAuthentication("Bearer")
-                .AddJwtBearer("Bearer", options =>
+            // The Microsoft JWT token validation middleware uses outdated names for claim types.
+            // Change to the IdentityServer4.AccessTokenValidation middleware to get up-to-date names
+            //services.AddAuthentication("Bearer")
+            //    .AddJwtBearer("Bearer", options =>
+            //    {
+            //        options.Authority = "https://securingangularappscoursev2-sts.azurewebsites.net/";
+            //        options.Audience = "projects-api";
+            //        options.RequireHttpsMetadata = false;
+            //    });
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
                 {
                     options.Authority = "https://securingangularappscoursev2-sts.azurewebsites.net/";
-                    options.Audience = "projects-api";
+                    options.ApiName = "projects-api";
                     options.RequireHttpsMetadata = false;
                 });
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();

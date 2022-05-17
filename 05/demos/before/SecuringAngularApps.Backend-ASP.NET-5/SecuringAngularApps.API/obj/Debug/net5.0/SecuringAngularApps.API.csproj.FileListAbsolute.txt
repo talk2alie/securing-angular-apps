@@ -129,3 +129,6 @@ C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.N
 C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\obj\Debug\net5.0\SecuringAngularApps.API.genruntimeconfig.cache
 C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\obj\Debug\net5.0\ref\SecuringAngularApps.API.dll
 C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\bin\Debug\net5.0\IdentityModel.dll
+C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\bin\Debug\net5.0\IdentityModel.AspNetCore.OAuth2Introspection.dll
+C:\Repos\securing-angular-apps\05\demos\before\SecuringAngularApps.Backend-ASP.NET-5\SecuringAngularApps.API\bin\Debug\net5.0\IdentityServer4.AccessTokenValidation.dll

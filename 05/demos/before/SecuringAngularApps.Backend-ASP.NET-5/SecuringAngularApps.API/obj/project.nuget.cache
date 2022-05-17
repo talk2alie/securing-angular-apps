@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dmsXIrf1uMwmZfKUicd0UPgFsQMSYR+nVxg77jeqXtnz3zPjCpj3rHlsce9gMZqHs/kmOUyUjOMG4wHNGu1xvw==",
+  "dgSpecHash": "44pCo6u7xRGtSGAHsGLtM+5XS+s+aLj2aN8/EhW2VZENERk4u62+GW+KgTzPaTjS95IgFltLIwEW//flyoSiCA==",
   "success": true,
   "projectFilePath": "C:\\Repos\\securing-angular-apps\\05\\demos\\before\\SecuringAngularApps.Backend-ASP.NET-5\\SecuringAngularApps.API\\SecuringAngularApps.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\talk2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\talk2\\.nuget\\packages\\identitymodel\\4.0.0\\identitymodel.4.0.0.nupkg.sha512",
+    "C:\\Users\\talk2\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
+    "C:\\Users\\talk2\\.nuget\\packages\\identityserver4.accesstokenvalidation\\3.0.1\\identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
     "C:\\Users\\talk2\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\talk2\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512",
     "C:\\Users\\talk2\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",

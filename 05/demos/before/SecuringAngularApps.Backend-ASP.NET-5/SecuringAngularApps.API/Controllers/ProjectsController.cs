@@ -26,6 +26,11 @@ namespace SecuringAngularApps.API.Controllers
         [HttpGet]
         public IEnumerable<Project> GetProjects()
         {
+            foreach (var claim in User.Claims)
+            {
+                Console.WriteLine(claim.Type);
+            }
+
             return _context.Projects;
         }
 
@@ -63,7 +68,7 @@ namespace SecuringAngularApps.API.Controllers
         }
 
         // PUT: api/Projects/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutProject([FromRoute] int id, [FromBody] Project project)
         {
             if (!ModelState.IsValid)
@@ -113,7 +118,7 @@ namespace SecuringAngularApps.API.Controllers
         }
 
         // DELETE: api/Projects/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteProject([FromRoute] int id)
         {
             if (!ModelState.IsValid)
