@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreModule } from './core.module';
-import { SignoutResponse, User, UserManager } from 'oidc-client';
+import { SignoutResponse, User, UserManager, UserManagerSettings } from 'oidc-client';
 import { Constants } from '../constants';
 import { Observable, Subject } from 'rxjs';
 
@@ -13,13 +13,15 @@ export class AuthService {
   loginChanged: Observable<boolean> = this.loginChangedSubject.asObservable();
 
   constructor() {
-    const stsSettings = {
+    const stsSettings: UserManagerSettings = {
       authority: Constants.stsAuthority,
       client_id: Constants.clientId,
       redirect_uri: `${Constants.clientRoot}signin-callback`,
       scope: 'openid profile projects-api',
       response_type: 'code',
-      post_logout_redirect_uri: `${Constants.clientRoot}signout-callback`
+      post_logout_redirect_uri: `${Constants.clientRoot}signout-callback`,
+      automaticSilentRenew: true,
+      silent_redirect_uri: `${Constants.clientRoot}assets/silent-callback.html`
       // Auth0 requires the below settings
       // When these settings are used, they override IDS original discovery settings
       // Auth0 does not put these settings in the discovery doc since each instance is separate
@@ -34,6 +36,7 @@ export class AuthService {
       // }
     };
     this.userManager = new UserManager(stsSettings);
+    this.userManager.events.addAccessTokenExpired(_ => this.loginChangedSubject.next(false));
   }
 
   login(): Promise<void> {
@@ -66,6 +69,7 @@ export class AuthService {
 
   completeLogout(): Promise<SignoutResponse> {
     this.user = null;
+    this.loginChangedSubject.next(false);
     return this.userManager.signoutRedirectCallback();
   }
 

@@ -72,6 +72,17 @@ namespace IdentityServerHost.Quickstart.UI
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model, string button)
         {
+            //var u = new ApplicationUser
+            //{
+            //    Email = "alice@company.com",
+            //    Id = $"{Guid.NewGuid()}",
+            //    UserName = "alice",
+            //    EmailConfirmed = true,
+            //    TwoFactorEnabled = false
+            //};
+
+            //var r = await _userManager.CreateAsync(u, "Passwd@123");
+
             // check if we are in the context of an authorization request
             var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
 
