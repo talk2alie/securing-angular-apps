@@ -58,7 +58,7 @@ namespace SecuringAngularApps.STS
                         IdentityServerConstants.StandardScopes.Profile,
                         "projects-api"
                     },
-                    AccessTokenLifetime = 30
+                    AccessTokenLifetime = 600
                 }
             };
     }

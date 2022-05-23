@@ -46,7 +46,7 @@ export class AuthService {
         this.loadSecurityContext();
         this.loginChangedSubject.next(!!user && !user.expired);
       }
-    })
+    });
   }
 
   login(): Promise<void> {
